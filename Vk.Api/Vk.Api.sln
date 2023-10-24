@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Api", "Vk.Api\Vk.Api.csproj", "{022F1A84-F19C-4808-BC75-87AC9402C46B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Base", "Vk.Base\Vk.Base.csproj", "{BA3D20A9-6485-483F-848A-63C5AE70A33B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Data", "Vk.Data\Vk.Data.csproj", "{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{022F1A84-F19C-4808-BC75-87AC9402C46B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022F1A84-F19C-4808-BC75-87AC9402C46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022F1A84-F19C-4808-BC75-87AC9402C46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022F1A84-F19C-4808-BC75-87AC9402C46B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA3D20A9-6485-483F-848A-63C5AE70A33B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA3D20A9-6485-483F-848A-63C5AE70A33B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA3D20A9-6485-483F-848A-63C5AE70A33B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA3D20A9-6485-483F-848A-63C5AE70A33B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
