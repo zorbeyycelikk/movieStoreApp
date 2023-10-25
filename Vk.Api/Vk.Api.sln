@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Base", "Vk.Base\Vk.Base.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Data", "Vk.Data\Vk.Data.csproj", "{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Schema", "Vk.Schema\Vk.Schema.csproj", "{5F1AEA14-3B96-4E64-9AC7-A7BE4195B9BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Operations", "Vk.Operations\Vk.Operations.csproj", "{0805FB36-07E9-44FC-B027-9BAF84BB02ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46D53CAD-3189-4F3D-8027-6A4CF50F70A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F1AEA14-3B96-4E64-9AC7-A7BE4195B9BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F1AEA14-3B96-4E64-9AC7-A7BE4195B9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F1AEA14-3B96-4E64-9AC7-A7BE4195B9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F1AEA14-3B96-4E64-9AC7-A7BE4195B9BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0805FB36-07E9-44FC-B027-9BAF84BB02ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0805FB36-07E9-44FC-B027-9BAF84BB02ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0805FB36-07E9-44FC-B027-9BAF84BB02ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0805FB36-07E9-44FC-B027-9BAF84BB02ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

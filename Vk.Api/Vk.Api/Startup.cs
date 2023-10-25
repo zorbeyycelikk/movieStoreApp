@@ -1,6 +1,12 @@
+using System.Reflection;
+using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Vk.Data.Context;
+using Vk.Data.Uow;
+using Vk.Operation.Mapper;
+using Vk.Operations.Cqrs;
 
 namespace VkApi;
 
@@ -20,7 +26,17 @@ public class Startup
         // Database için bağlantı kodları
         string connection = Configuration.GetConnectionString("MsSqlConnection");
         services.AddDbContext<VkDbContext>(opts => opts.UseSqlServer(connection));
-
+        
+        // UnitOfWork
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        
+        //MediatR
+        services.AddMediatR(typeof(GetAllCustomerQuery).GetTypeInfo().Assembly);
+        
+        // Mapper Configuration
+        var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MapperConfig()); });
+        services.AddSingleton(config.CreateMapper());
+        
         services.AddControllers();
         services.AddSwaggerGen(c =>
         {

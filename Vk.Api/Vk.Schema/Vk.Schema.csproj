@@ -6,8 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Content Include="bin\Debug\net7.0\Vk.Base.dll" />
-    </ItemGroup>
-
 </Project>
