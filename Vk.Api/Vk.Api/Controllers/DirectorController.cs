@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vk.Operations.Cqrs;
 using Vk.Schema;
@@ -17,6 +18,7 @@ public class DirectorController : ControllerBase
     }
     
     [HttpGet]
+    [Authorize(Roles = "Celik, customer")]
     public async Task<List<DirectorResponse>> Get()
     {
         var operation = new GetAllDirectorQuery();
@@ -25,6 +27,7 @@ public class DirectorController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Celik, customer")]
     public async Task<DirectorResponse> Get(int id)
     {
         var operation = new GetDirectorById(id);
@@ -33,6 +36,7 @@ public class DirectorController : ControllerBase
     }
     
     [HttpPost]
+    [Authorize(Roles = "Celik")]
     public async Task <String> Create([FromBody] DirectorCreateRequest request)
     {
         var operation = new CreateDirectorCommand(request);
@@ -41,6 +45,7 @@ public class DirectorController : ControllerBase
     }
     
     [HttpPut("{id}")]
+    [Authorize(Roles = "Celik")]
     public async  Task<String> Put(int id, [FromBody] DirectorUpdateRequest request)
     {
         var operation = new UpdateDirectorCommand(request,id);
@@ -49,6 +54,7 @@ public class DirectorController : ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Celik")]
     public async Task <String> DeleteById(int id)
     {
         var operation = new DeleteDirectorCommand(id);

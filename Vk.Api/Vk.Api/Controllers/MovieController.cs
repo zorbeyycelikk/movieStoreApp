@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vk.Operations.Cqrs;
 using Vk.Schema;
@@ -17,6 +18,7 @@ public class MovieController : ControllerBase
     }
     
     [HttpGet]
+    [Authorize(Roles = "Celik , customer")]
     public async Task<List<MovieResponse>> Get()
     {
         var operation = new GetAllMovieQuery();
@@ -25,6 +27,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Celik , customer")]
     public async Task<MovieResponse> Get(int id)
     {
         var operation = new GetMovieById(id);
@@ -33,6 +36,7 @@ public class MovieController : ControllerBase
     }
     
     [HttpPost]
+    [Authorize(Roles = "Celik")]
     public async Task <String> Create([FromBody] MovieCreateRequest request)
     {
         var operation = new CreateMovieCommand(request);
@@ -41,6 +45,7 @@ public class MovieController : ControllerBase
     }
     
     [HttpPut("{id}")]
+    [Authorize(Roles = "Celik")]
     public async  Task<String> Put(int id, [FromBody] MovieUpdateRequest request)
     {
         var operation = new UpdateMovieCommand(request,id);
@@ -49,6 +54,7 @@ public class MovieController : ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Celik")]
     public async Task <String> DeleteById(int id)
     {
         var operation = new DeleteMovieCommand(id);

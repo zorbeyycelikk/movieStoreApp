@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vk.Operations.Cqrs;
 using Vk.Schema;
@@ -17,6 +18,7 @@ public class UserFavoriteMovieGenresController : ControllerBase
     }
     
     [HttpGet]
+    [Authorize(Roles = "Celik")]
     public async Task<List<UserFavoriteMovieGenresResponse>> Get()
     {
         var operation = new GetAllUserFavoriteMovieGenresQuery();
@@ -25,6 +27,7 @@ public class UserFavoriteMovieGenresController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Celik")]
     public async Task<UserFavoriteMovieGenresResponse> Get(int id)
     {
         var operation = new GetUserFavoriteMovieGenresById(id);
@@ -33,6 +36,7 @@ public class UserFavoriteMovieGenresController : ControllerBase
     }
     
     [HttpPost]
+    [Authorize(Roles = "Celik")]
     public async Task <String> Create([FromBody] UserFavoriteMovieGenresCreateRequest request)
     {
         var operation = new CreateUserFavoriteMovieGenresCommand(request);
@@ -41,6 +45,7 @@ public class UserFavoriteMovieGenresController : ControllerBase
     }
     
     [HttpPut("{id}")]
+    [Authorize(Roles = "Celik")]
     public async  Task<String> Put(int id, [FromBody] UserFavoriteMovieGenresUpdateRequest request)
     {
         var operation = new UpdateUserFavoriteMovieGenresCommand(request,id);
@@ -49,6 +54,7 @@ public class UserFavoriteMovieGenresController : ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Celik")]
     public async Task <String> DeleteById(int id)
     {
         var operation = new DeleteUserFavoriteMovieGenresCommand(id);

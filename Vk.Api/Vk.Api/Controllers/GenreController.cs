@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vk.Operations.Cqrs;
 using Vk.Schema;
@@ -17,6 +18,7 @@ public class GenreController : ControllerBase
     }
     
     [HttpGet]
+    [Authorize(Roles = "Celik , customer")]
     public async Task<List<GenreResponse>> Get()
     {
         var operation = new GetAllGenreQuery();
@@ -25,6 +27,7 @@ public class GenreController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Celik, customer")]
     public async Task<GenreResponse> Get(int id)
     {
         var operation = new GetGenreById(id);
@@ -33,6 +36,7 @@ public class GenreController : ControllerBase
     }
     
     [HttpPost]
+    [Authorize(Roles = "Celik")]
     public async Task <String> Create([FromBody] GenreCreateRequest request)
     {
         var operation = new CreateGenreCommand(request);
@@ -41,6 +45,7 @@ public class GenreController : ControllerBase
     }
     
     [HttpPut("{id}")]
+    [Authorize(Roles = "Celik")]
     public async  Task<String> Put(int id, [FromBody] GenreUpdateRequest request)
     {
         var operation = new UpdateGenreCommand(request,id);
@@ -49,6 +54,7 @@ public class GenreController : ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Celik")]
     public async Task <String> DeleteById(int id)
     {
         var operation = new DeleteGenreCommand(id);

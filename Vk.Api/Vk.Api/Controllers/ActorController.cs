@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vk.Operations.Cqrs;
 using Vk.Schema;
@@ -17,6 +18,7 @@ public class ActorController : ControllerBase
     }
     
     [HttpGet]
+    [Authorize(Roles = "Celik")]
     public async Task<List<ActorResponse>> Get()
     {
         var operation = new GetAllActorQuery();
@@ -25,6 +27,7 @@ public class ActorController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Celik")]
     public async Task<ActorResponse> Get(int id)
     {
         var operation = new GetActorById(id);
@@ -33,6 +36,7 @@ public class ActorController : ControllerBase
     }
     
     [HttpPost]
+    [Authorize(Roles = "Celik")]
     public async Task <String> Create([FromBody] ActorCreateRequest request)
     {
         var operation = new CreateActorCommand(request);
@@ -41,6 +45,7 @@ public class ActorController : ControllerBase
     }
     
     [HttpPut("{id}")]
+    [Authorize(Roles = "Celik")]
     public async  Task<String> Put(int id, [FromBody] ActorUpdateRequest request)
     {
         var operation = new UpdateActorCommand(request,id);
@@ -49,6 +54,7 @@ public class ActorController : ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Celik")]
     public async Task <String> DeleteById(int id)
     {
         var operation = new DeleteActorCommand(id);
