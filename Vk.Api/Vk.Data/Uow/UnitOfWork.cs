@@ -18,6 +18,7 @@ public class UnitOfWork : IUnitOfWork
         GenreRepository = new GenericRepository<Genre>(dbContext);
         MovieRepository = new GenericRepository<Movie>(dbContext);
         OrderRepository = new GenericRepository<Order>(dbContext);
+        UserFavoriteMovieGenresRepository = new GenericRepository<UserFavoriteMovieGenres>(dbContext);
     }
 
     public void Complete(CancellationToken cancellationToken)
@@ -47,4 +48,6 @@ public class UnitOfWork : IUnitOfWork
     public IGenericRepository<Genre>    GenreRepository { get; private set; }
     public IGenericRepository<Movie>    MovieRepository { get; private set; }
     public IGenericRepository<Order>    OrderRepository { get; private set; }
+    public IGenericRepository<UserFavoriteMovieGenres>     UserFavoriteMovieGenresRepository { get; private set; }
+
 }

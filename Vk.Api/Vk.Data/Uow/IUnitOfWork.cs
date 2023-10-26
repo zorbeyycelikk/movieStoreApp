@@ -15,4 +15,6 @@ public interface IUnitOfWork
     public IGenericRepository<Movie> MovieRepository { get; }
     public IGenericRepository<Order> OrderRepository { get; }
     
+    public IGenericRepository<UserFavoriteMovieGenres>     UserFavoriteMovieGenresRepository { get; }
+
 }

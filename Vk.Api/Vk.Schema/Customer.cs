@@ -1,3 +1,5 @@
+using Vk.Data.Domain;
+
 namespace Vk.Schema;
 
 public class CustomerCreateRequest
@@ -17,4 +19,5 @@ public class CustomerResponse
 {
     public int    CustomerNumber { get; set; }     // Müsteri Unique Number(Sicil gibi)
     public string CustomerFullName { get; set; }   // Mapper'dan gelecek
+    public List<UserFavoriteMovieGenres> UserFavoriteMovieGenres { get; set; } 
 }
