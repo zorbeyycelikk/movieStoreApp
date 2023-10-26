@@ -8,16 +8,15 @@ namespace Vk.Data.Domain;
 [Table("Movie", Schema = "dbo")]
 public class Movie : BaseModel
 {
-    public int MovieNumber { get; set; }   // Film Numarasi
-    public string MovieName  { get; set; } // Film Adi
-    public int    MovieYear  { get; set; } // Film Yili
+    public int    MovieNumber  { get; set; }   // Film Numarasi
+    public string MovieName    { get; set; }   // Film Adi
+    public int    MovieYear    { get; set; }   // Film Yili
+    public int    Price        { get; set; }
+    public int    GenreId      { get; set; }   // Film 'in bir tane türü olur
+    public int    DirectorId   { get; set; }   // Foreign Key ile gelecek.(DirectorNumber)
     
-    public int GenreId { get; set; } // Film 'in bir tane türü olur
     public virtual Genre Genre { get; set; }
-    
-    public int DirectorId { get; set; }    // Foreign Key ile gelecek.(DirectorNumber)
     public virtual Director Director { get; set; }  // Film'in bir tane yönetmeni olur
-    
     public virtual List<Actor> Actors { get; set; } // Filmde bir den çok oyuncu olabilir
 }
 

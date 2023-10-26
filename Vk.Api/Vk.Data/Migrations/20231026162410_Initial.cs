@@ -107,7 +107,7 @@ namespace Vk.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PurschaseNumber = table.Column<int>(type: "int", nullable: false),
+                    PurschaseNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PurchaserCustomer = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PurchasedMovie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
@@ -154,7 +154,7 @@ namespace Vk.Data.Migrations
                         column: x => x.CustomerId,
                         principalSchema: "dbo",
                         principalTable: "Customer",
-                        principalColumn: "CustomerNumber",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -168,6 +168,7 @@ namespace Vk.Data.Migrations
                     MovieNumber = table.Column<int>(type: "int", nullable: false),
                     MovieName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     MovieYear = table.Column<int>(type: "int", maxLength: 4, nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
                     GenreId = table.Column<int>(type: "int", nullable: false),
                     DirectorId = table.Column<int>(type: "int", nullable: false),
                     InsertUserId = table.Column<int>(type: "int", nullable: false),

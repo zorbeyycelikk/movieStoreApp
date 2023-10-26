@@ -1,0 +1,190 @@
+2023-10-26 18:33:16.941 [INF] App server is starting.
+2023-10-26 18:33:52.911 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:33:52.914 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:33:57.098 [INF] -------------Request-Begin------------
+2023-10-26 18:33:57.100 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /Tokens 
+QueryString:  
+Request Body: {
+  "userNumber": 1,
+  "password": "Celik"
+}
+2023-10-26 18:33:57.101 [INF] 
+
+2023-10-26 18:33:57.101 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /Tokens 
+QueryString:  
+StatusCode: 200 
+Response Body: {"expireDate":"2023-10-26T18:43:57.016425+03:00","token":"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJDdXN0b21lck51bWJlciI6IjEiLCJSb2xlIjoiQ2VsaWsiLCJGdWxsTmFtZSI6IkpvaG5DZWxpayIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkNlbGlrIiwiZXhwIjoxNjk4MzM1MDM2LCJpc3MiOiJWa0FwaSIsImF1ZCI6IlZrQXBpIn0.OVug5aK1ns0dMHPQMAmkTaAL1xe-jEXoJC7vWG55_A0","userNumber":1,"fullName":"JohnCelik"}
+2023-10-26 18:33:57.101 [INF] -------------Request-End------------
+2023-10-26 18:34:09.986 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:34:09.987 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:34:10.079 [INF] -------------Request-Begin------------
+2023-10-26 18:34:10.079 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer 
+QueryString:  
+Request Body: 
+2023-10-26 18:34:10.079 [INF] 
+
+2023-10-26 18:34:10.079 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer 
+QueryString:  
+StatusCode: 403 
+Response Body: 
+2023-10-26 18:34:10.079 [INF] -------------Request-End------------
+2023-10-26 18:34:25.788 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:34:25.789 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:34:25.941 [INF] -------------Request-Begin------------
+2023-10-26 18:34:25.941 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer/2 
+QueryString:  
+Request Body: 
+2023-10-26 18:34:25.941 [INF] 
+
+2023-10-26 18:34:25.941 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer/2 
+QueryString:  
+StatusCode: 200 
+Response Body: {"customerNumber":2,"customerFullName":"Jane Smith","userFavoriteMovieGenresList":[]}
+2023-10-26 18:34:25.942 [INF] -------------Request-End------------
+2023-10-26 18:34:29.449 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:34:29.450 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:34:29.506 [INF] -------------Request-Begin------------
+2023-10-26 18:34:29.506 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer/1 
+QueryString:  
+Request Body: 
+2023-10-26 18:34:29.506 [INF] 
+
+2023-10-26 18:34:29.506 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer/1 
+QueryString:  
+StatusCode: 200 
+Response Body: {"customerNumber":1,"customerFullName":"John Celik","userFavoriteMovieGenresList":[]}
+2023-10-26 18:34:29.506 [INF] -------------Request-End------------
+2023-10-26 18:34:35.730 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:34:35.732 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:34:35.733 [INF] -------------Request-Begin------------
+2023-10-26 18:34:35.734 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer 
+QueryString:  
+Request Body: 
+2023-10-26 18:34:35.734 [INF] 
+
+2023-10-26 18:34:35.734 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer 
+QueryString:  
+StatusCode: 403 
+Response Body: 
+2023-10-26 18:34:35.734 [INF] -------------Request-End------------
+2023-10-26 18:40:13.218 [INF] App server is starting.
+2023-10-26 18:40:26.209 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:40:26.213 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:40:28.927 [INF] -------------Request-Begin------------
+2023-10-26 18:40:28.927 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /Tokens 
+QueryString:  
+Request Body: {
+  "userNumber": 1,
+  "password": "Celik"
+}
+2023-10-26 18:40:28.927 [INF] 
+
+2023-10-26 18:40:28.928 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /Tokens 
+QueryString:  
+StatusCode: 200 
+Response Body: {"expireDate":"2023-10-26T18:50:28.886405+03:00","token":"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJDdXN0b21lck51bWJlciI6IjEiLCJSb2xlIjoiQ2VsaWsiLCJGdWxsTmFtZSI6IkpvaG5DZWxpayIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkNlbGlrIiwiZXhwIjoxNjk4MzM1NDI4LCJpc3MiOiJWa0FwaSIsImF1ZCI6IlZrQXBpIn0.vrAJTUxQ0CUSIJ7tLqnGpBiBv0Jw71ANP7g0LICcN8k","userNumber":1,"fullName":"JohnCelik"}
+2023-10-26 18:40:28.928 [INF] -------------Request-End------------
+2023-10-26 18:40:42.655 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:40:42.657 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:40:42.899 [INF] -------------Request-Begin------------
+2023-10-26 18:40:42.899 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/UserFavoriteMovieGenres 
+QueryString:  
+Request Body: 
+2023-10-26 18:40:42.899 [INF] 
+
+2023-10-26 18:40:42.899 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/UserFavoriteMovieGenres 
+QueryString:  
+StatusCode: 200 
+Response Body: [{"customerId":0,"favoriteGenreId":1},{"customerId":0,"favoriteGenreId":2},{"customerId":0,"favoriteGenreId":3},{"customerId":0,"favoriteGenreId":4},{"customerId":0,"favoriteGenreId":5},{"customerId":0,"favoriteGenreId":6},{"customerId":0,"favoriteGenreId":7},{"customerId":0,"favoriteGenreId":8},{"customerId":0,"favoriteGenreId":9},{"customerId":0,"favoriteGenreId":10},{"customerId":0,"favoriteGenreId":4}]
+2023-10-26 18:40:42.899 [INF] -------------Request-End------------
+2023-10-26 18:40:52.188 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 18:40:52.188 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 18:40:52.205 [INF] -------------Request-Begin------------
+2023-10-26 18:40:52.206 [INF] Http Request Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer 
+QueryString:  
+Request Body: 
+2023-10-26 18:40:52.206 [INF] 
+
+2023-10-26 18:40:52.206 [INF] Http Response Information: 
+Schema:http 
+Host: localhost:5196 
+Path: /vk/api/v1/Customer 
+QueryString:  
+StatusCode: 401 
+Response Body: 
+2023-10-26 18:40:52.206 [INF] -------------Request-End------------
+2023-10-26 19:32:00.551 [INF] App server is starting.
+2023-10-26 19:32:37.600 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 19:32:37.607 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 19:32:40.573 [FTL] Path=/vk/api/v1/Order || Method=POST || Exception=Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderResponse
+Vk.Data.Domain.Order -> Vk.Schema.OrderResponse
+2023-10-26 19:39:32.679 [INF] App server is starting.
+2023-10-26 19:39:43.828 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 19:39:43.833 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 19:39:46.863 [FTL] Path=/vk/api/v1/Order || Method=POST || Exception=Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderResponse
+Vk.Data.Domain.Order -> Vk.Schema.OrderResponse
+2023-10-26 19:40:28.278 [INF] App server is starting.
+2023-10-26 19:40:40.076 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 19:40:40.082 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 19:48:00.115 [INF] App server is starting.
+2023-10-26 19:48:13.246 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 19:48:13.253 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 19:50:06.604 [FTL] Path=/vk/api/v1/Order || Method=POST || Exception=Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderResponse
+Vk.Data.Domain.Order -> Vk.Schema.OrderResponse
+2023-10-26 19:50:49.947 [INF] LogErrorHandlerMiddleware.Invoke
+2023-10-26 19:50:49.949 [INF] LogRequestLoggingMiddleware.Invoke
+2023-10-26 19:52:43.951 [INF] App server is starting.

@@ -8,7 +8,7 @@ namespace Vk.Data.Domain;
 [Table("Order", Schema = "dbo")]
 public class Order : BaseModel
 {
-        public int      PurschaseNumber { get; set; }     // Satın Alma Fiş No(unique)
+        public string      PurschaseNumber { get; set; }     // Satın Alma Fiş No(unique)
         public string   PurchaserCustomer  { get; set; }  // Satın Alan Müşteri İsmi
         public string   PurchasedMovie     { get; set; }  // Satın Alınan Filmler
         public int      Price              { get; set; }  // Fiyat

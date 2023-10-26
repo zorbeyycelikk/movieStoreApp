@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Schema", "Vk.Schema\Vk.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.Operations", "Vk.Operations\Vk.Operations.csproj", "{0805FB36-07E9-44FC-B027-9BAF84BB02ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vk.UnitTest", "Vk.UnitTest\Vk.UnitTest.csproj", "{29D7BD8A-FB0E-4E9F-B029-37D5095971BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{0805FB36-07E9-44FC-B027-9BAF84BB02ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0805FB36-07E9-44FC-B027-9BAF84BB02ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0805FB36-07E9-44FC-B027-9BAF84BB02ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29D7BD8A-FB0E-4E9F-B029-37D5095971BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D7BD8A-FB0E-4E9F-B029-37D5095971BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D7BD8A-FB0E-4E9F-B029-37D5095971BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D7BD8A-FB0E-4E9F-B029-37D5095971BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

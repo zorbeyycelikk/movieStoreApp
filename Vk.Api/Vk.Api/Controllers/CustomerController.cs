@@ -19,46 +19,46 @@ public class CustomerController : ControllerBase
     
     [HttpGet]
     [Authorize(Roles = "Celik")]
-    public async Task<List<CustomerResponse>> Get()
+    public async Task<IActionResult> Get()
     {
         var operation = new GetAllCustomerQuery();
         var result = await mediator.Send(operation);
-        return result.Response ;
+        return result.Success ? Ok(result.Response) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpGet("{id}")]
     [Authorize(Roles = "Celik")]
-    public async Task<CustomerResponse> Get(int id)
+    public async Task<IActionResult> Get(int id)
     {
         var operation = new GetCustomerById(id);
         var result = await mediator.Send(operation);
-        return result.Response;
+        return result.Success ? Ok(result.Response) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPost]
     [Authorize(Roles = "Celik")]
-    public async Task <String> Create([FromBody] CustomerCreateRequest request)
+    public async Task<IActionResult> Create([FromBody] CustomerCreateRequest request)
     {
         var operation = new CreateCustomerCommand(request);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPut("{id}")]
     [Authorize(Roles = "Celik")]
-    public async  Task<String> Put(int id, [FromBody] CustomerUpdateRequest request)
+    public async  Task<IActionResult> Put(int id, [FromBody] CustomerUpdateRequest request)
     {
         var operation = new UpdateCustomerCommand(request,id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpDelete("{id}")]
     [Authorize(Roles = "Celik")]
-    public async Task <String> DeleteById(int id)
+    public async Task<IActionResult> DeleteById(int id)
     {
         var operation = new DeleteCustomerCommand(id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
 }

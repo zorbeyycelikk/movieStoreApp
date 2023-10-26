@@ -28,37 +28,37 @@ public class MovieController : ControllerBase
 
     [HttpGet("{id}")]
     [Authorize(Roles = "Celik , customer")]
-    public async Task<MovieResponse> Get(int id)
+    public async Task<IActionResult> Get(int id)
     {
         var operation = new GetMovieById(id);
         var result = await mediator.Send(operation);
-        return result.Response;
+        return result.Success ? Ok(result.Response) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPost]
     [Authorize(Roles = "Celik")]
-    public async Task <String> Create([FromBody] MovieCreateRequest request)
+    public async Task<IActionResult> Create([FromBody] MovieCreateRequest request)
     {
         var operation = new CreateMovieCommand(request);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPut("{id}")]
     [Authorize(Roles = "Celik")]
-    public async  Task<String> Put(int id, [FromBody] MovieUpdateRequest request)
+    public async  Task<IActionResult> Put(int id, [FromBody] MovieUpdateRequest request)
     {
         var operation = new UpdateMovieCommand(request,id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpDelete("{id}")]
     [Authorize(Roles = "Celik")]
-    public async Task <String> DeleteById(int id)
+    public async Task<IActionResult> DeleteById(int id)
     {
         var operation = new DeleteMovieCommand(id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
 }

@@ -19,46 +19,46 @@ public class ActorController : ControllerBase
     
     [HttpGet]
     [Authorize(Roles = "Celik")]
-    public async Task<List<ActorResponse>> Get()
+    public async Task<IActionResult> Get()
     {
         var operation = new GetAllActorQuery();
         var result = await mediator.Send(operation);
-        return result.Response ;
+        return result.Success ? Ok(result.Response) : result.Message == "Error" ? NotFound() : BadRequest();
     }
 
     [HttpGet("{id}")]
     [Authorize(Roles = "Celik")]
-    public async Task<ActorResponse> Get(int id)
+    public async Task<IActionResult> Get(int id)
     {
         var operation = new GetActorById(id);
         var result = await mediator.Send(operation);
-        return result.Response;
+        return result.Success ? Ok(result.Response) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPost]
     [Authorize(Roles = "Celik")]
-    public async Task <String> Create([FromBody] ActorCreateRequest request)
+    public async Task<IActionResult> Create([FromBody] ActorCreateRequest request)
     {
         var operation = new CreateActorCommand(request);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPut("{id}")]
     [Authorize(Roles = "Celik")]
-    public async  Task<String> Put(int id, [FromBody] ActorUpdateRequest request)
+    public async  Task<IActionResult> Put(int id, [FromBody] ActorUpdateRequest request)
     {
         var operation = new UpdateActorCommand(request,id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpDelete("{id}")]
     [Authorize(Roles = "Celik")]
-    public async Task <String> DeleteById(int id)
+    public async Task<IActionResult> DeleteById(int id)
     {
         var operation = new DeleteActorCommand(id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
 }

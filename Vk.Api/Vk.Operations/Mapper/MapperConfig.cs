@@ -36,5 +36,12 @@ public class MapperConfig : Profile
         CreateMap<UserFavoriteMovieGenresUpdateRequest, UserFavoriteMovieGenres>();
         CreateMap<UserFavoriteMovieGenres, UserFavoriteMovieGenresResponse>()
             .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Customer.Id));
+
+        CreateMap<OrderListRequest, Order>();
+        CreateMap<Order, OrderListResponse>()
+            .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Customer));
+        
+        CreateMap<OrderCreateRequest, Order>();
+        CreateMap<Order, OrderResponse>();
     }
 }

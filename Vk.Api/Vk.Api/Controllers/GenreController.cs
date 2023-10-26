@@ -19,46 +19,46 @@ public class GenreController : ControllerBase
     
     [HttpGet]
     [Authorize(Roles = "Celik , customer")]
-    public async Task<List<GenreResponse>> Get()
+    public async Task <IActionResult> Get()
     {
         var operation = new GetAllGenreQuery();
         var result = await mediator.Send(operation);
-        return result.Response ;
+        return result.Success ? Ok(result.Response) : result.Message == "Error" ? NotFound() : BadRequest();
     }
 
     [HttpGet("{id}")]
     [Authorize(Roles = "Celik, customer")]
-    public async Task<GenreResponse> Get(int id)
+    public async Task <IActionResult> Get(int id)
     {
         var operation = new GetGenreById(id);
         var result = await mediator.Send(operation);
-        return result.Response;
+        return result.Success ? Ok(result.Response) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPost]
     [Authorize(Roles = "Celik")]
-    public async Task <String> Create([FromBody] GenreCreateRequest request)
+    public async Task <IActionResult> Create([FromBody] GenreCreateRequest request)
     {
         var operation = new CreateGenreCommand(request);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpPut("{id}")]
     [Authorize(Roles = "Celik")]
-    public async  Task<String> Put(int id, [FromBody] GenreUpdateRequest request)
+    public async  Task <IActionResult> Put(int id, [FromBody] GenreUpdateRequest request)
     {
         var operation = new UpdateGenreCommand(request,id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
     
     [HttpDelete("{id}")]
     [Authorize(Roles = "Celik")]
-    public async Task <String> DeleteById(int id)
+    public async Task <IActionResult> DeleteById(int id)
     {
         var operation = new DeleteGenreCommand(id);
         var result = await mediator.Send(operation);
-        return result.Message;
+        return result.Success ? Ok(result.Message) : result.Message == "Error" ? NotFound() : BadRequest();
     }
 }
