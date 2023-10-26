@@ -23,7 +23,7 @@ public class CustomerQueryHandler :
     
     public async Task<ApiResponse<List<CustomerResponse>>> Handle(GetAllCustomerQuery request, CancellationToken cancellationToken)
     {
-        List<Customer> x =  await unitOfWork.CustomerRepository.GetAll(cancellationToken,"Orders" , "UserFavoriteMovieGenres");
+        List<Customer> x =  await unitOfWork.CustomerRepository.GetAll(cancellationToken , "UserFavoriteMovieGenresList");
         List<CustomerResponse> response = mapper.Map<List<CustomerResponse>>(x);
         return new ApiResponse<List<CustomerResponse>>(response);
     }

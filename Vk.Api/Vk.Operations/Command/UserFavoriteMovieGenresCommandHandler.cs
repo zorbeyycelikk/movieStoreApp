@@ -24,12 +24,25 @@ public class UserFavoriteMovieGenresCommandHandler:
 
     public async Task<ApiResponse> Handle(CreateUserFavoriteMovieGenresCommand request, CancellationToken cancellationToken)
     {
-        var entity = await unitOfWork.UserFavoriteMovieGenresRepository.GetAsQueryable()
-           .SingleOrDefaultAsync(x => x.Customer.Id == request.Model.CustomerId ,cancellationToken);
+        var entity = await unitOfWork.UserFavoriteMovieGenresRepository.GetAsQueryable().Where(x =>
+                x.CustomerId == request.Model.CustomerId && x.FavoriteGenreId == request.Model.FavoriteGenreId)
+            .SingleOrDefaultAsync(cancellationToken);
+        
         if (entity is not null)
         {
             return new ApiResponse("Error");
         }
+        
+        // Böyle bir kategori var mı onu check eder
+        var entity_genre = await unitOfWork.GenreRepository.GetAsQueryable()
+            .Where(x => x.Id == request.Model.FavoriteGenreId)
+            .SingleOrDefaultAsync(cancellationToken);
+        
+        if (entity_genre is null)
+        {
+            return new ApiResponse("Error");
+        }
+        
         UserFavoriteMovieGenres x = mapper.Map<UserFavoriteMovieGenres>(request.Model);
         unitOfWork.UserFavoriteMovieGenresRepository.Insert(x,cancellationToken);
         unitOfWork.Complete(cancellationToken);
@@ -38,11 +51,21 @@ public class UserFavoriteMovieGenresCommandHandler:
 
     public async Task<ApiResponse> Handle(UpdateUserFavoriteMovieGenresCommand request, CancellationToken cancellationToken)
     {
-        var entity = await unitOfWork.UserFavoriteMovieGenresRepository.GetById(request.Id, cancellationToken);
+        var entity = await unitOfWork.UserFavoriteMovieGenresRepository.GetById(request.Id, cancellationToken , "Customer","Genre");
         if (entity is null)
         {
             return new ApiResponse("Error");
         }
+
+        var entity_genre = await unitOfWork.GenreRepository.GetAsQueryable()
+            .Where(x => x.Id == request.Model.FavoriteGenreId)
+            .SingleOrDefaultAsync(cancellationToken);
+        
+        if (entity_genre is null)
+        {
+            return new ApiResponse("Error");
+        }
+        
         entity.FavoriteGenreId = request.Model.FavoriteGenreId;
         unitOfWork.UserFavoriteMovieGenresRepository.Update(entity);
         unitOfWork.Complete(cancellationToken);

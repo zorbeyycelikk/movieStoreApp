@@ -12,10 +12,9 @@ public class Customer : BaseModel
     public string CustomerFirstName  { get; set; } // Musteri Adi
     public string CustomerLastName  { get; set; }  // Musteri Soy Adi
     
+    public virtual List<UserFavoriteMovieGenres> UserFavoriteMovieGenresList { get; set; }
     public virtual List<Order> Orders { get; set; } // Musteri bir den çok siparişi olabilir.
-    public virtual List<UserFavoriteMovieGenres> UserFavoriteMovieGenres { get; set; } 
 }
-
 class CustomerConfigruration : IEntityTypeConfiguration<Customer>
 {
     public void Configure(EntityTypeBuilder<Customer> builder)
@@ -34,14 +33,12 @@ class CustomerConfigruration : IEntityTypeConfiguration<Customer>
           
         builder.HasMany(x => x.Orders) //Bir Customer'ın birden çok siparişi olabilir
             .WithOne(x => x.Customer) // Bir siparişin bir tane Customer'ı olabilir
-            .HasForeignKey(x => x.CustomerId)
             .HasPrincipalKey(c => c.CustomerNumber)
             .IsRequired(true);
         
-        builder.HasMany(x => x.UserFavoriteMovieGenres) //Bir Customer'ın birden çok siparişi olabilir
+        builder.HasMany(x => x.UserFavoriteMovieGenresList) //Bir Customer'ın birden çok siparişi olabilir
             .WithOne(x => x.Customer) // Bir siparişin bir tane Customer'ı olabilir
             .HasForeignKey(x => x.CustomerId)
-            .HasPrincipalKey(c => c.CustomerNumber)
             .IsRequired(true);
     }
 }

@@ -24,5 +24,6 @@ public class MovieResponse
     
     public int GenreId { get; set; } // Film 'in bir tane türü olur
     public int DirectorId { get; set; }    // Foreign Key ile gelecek.(DirectorNumber)
+    public List<ActorResponse> ActorList { get; set; } 
 }
 

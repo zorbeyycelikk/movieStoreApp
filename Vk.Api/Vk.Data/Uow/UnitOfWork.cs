@@ -1,3 +1,4 @@
+using Serilog;
 using Vk.Data.Context;
 using Vk.Data.Domain;
 using Vk.Data.Repository;
@@ -23,7 +24,7 @@ public class UnitOfWork : IUnitOfWork
 
     public void Complete(CancellationToken cancellationToken)
     {
-        dbContext.SaveChangesAsync(cancellationToken);
+        dbContext.SaveChanges();
     }
 
     public void CompleteTransaction()
@@ -38,7 +39,7 @@ public class UnitOfWork : IUnitOfWork
             catch (Exception ex)
             {
                 transaction.Rollback();
-                //Log.Error("CompleteTransactionError", ex);
+                Log.Error("CompleteTransactionError", ex);
             }
         }
     }

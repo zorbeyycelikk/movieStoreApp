@@ -4,11 +4,14 @@ using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using Vk.Base.Logger;
 using Vk.Data.Context;
 using Vk.Data.Uow;
 using Vk.Operation.Mapper;
 using Vk.Operations.Cqrs;
 using Vk.Operations.Validation;
+using VkApi.Middleware;
 
 namespace VkApi;
 
@@ -61,6 +64,18 @@ public class Startup
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vk.Api v1"));
         }
+        
+        app.UseMiddleware<ErrorHandlerMiddleware>();
+        Action<RequestProfilerModel> requestResponseHandler = requestProfilerModel =>
+        {
+            Log.Information("-------------Request-Begin------------");
+            Log.Information(requestProfilerModel.Request);
+            Log.Information(Environment.NewLine);
+            Log.Information(requestProfilerModel.Response);
+            Log.Information("-------------Request-End------------");
+        };
+        app.UseMiddleware<RequestLoggingMiddleware>(requestResponseHandler);
+
 
         app.UseHttpsRedirection();
 

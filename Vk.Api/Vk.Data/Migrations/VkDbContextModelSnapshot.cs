@@ -420,7 +420,7 @@ namespace Vk.Data.Migrations
             modelBuilder.Entity("Vk.Data.Domain.UserFavoriteMovieGenres", b =>
                 {
                     b.HasOne("Vk.Data.Domain.Customer", "Customer")
-                        .WithMany("UserFavoriteMovieGenres")
+                        .WithMany("UserFavoriteMovieGenresList")
                         .HasForeignKey("CustomerId")
                         .HasPrincipalKey("CustomerNumber")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -433,7 +433,7 @@ namespace Vk.Data.Migrations
                 {
                     b.Navigation("Orders");
 
-                    b.Navigation("UserFavoriteMovieGenres");
+                    b.Navigation("UserFavoriteMovieGenresList");
                 });
 
             modelBuilder.Entity("Vk.Data.Domain.Director", b =>

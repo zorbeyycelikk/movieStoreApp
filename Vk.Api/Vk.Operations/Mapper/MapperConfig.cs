@@ -13,6 +13,7 @@ public class MapperConfig : Profile
         CreateMap<Customer, CustomerResponse>()
             .ForMember(dest => dest.CustomerFullName, opt => opt
                 .MapFrom(src => src.CustomerFirstName + " " + src.CustomerLastName));
+            
         CreateMap<ActorCreateRequest, Actor>();
         CreateMap<ActorUpdateRequest, Actor>();
         CreateMap<Actor, ActorResponse>();
@@ -28,16 +29,12 @@ public class MapperConfig : Profile
         CreateMap<MovieCreateRequest, Movie>();
         CreateMap<MovieUpdateRequest, Movie>();
         CreateMap<Movie, MovieResponse>()
-            .ForMember(dest => dest.DirectorId, opt => opt
-                .MapFrom(src => src.Director.Id))
-            .ForMember(dest => dest.GenreId, opt => opt
-                .MapFrom(src => src.Genre.Id));
-
+            .ForMember(dest => dest.DirectorId, opt => opt.MapFrom(src => src.Director.DirectorNumber))
+            .ForMember(dest => dest.GenreId, opt => opt.MapFrom(src => src.Genre.GenreNumber));
+        
         CreateMap<UserFavoriteMovieGenresCreateRequest, UserFavoriteMovieGenres>();
         CreateMap<UserFavoriteMovieGenresUpdateRequest, UserFavoriteMovieGenres>();
         CreateMap<UserFavoriteMovieGenres, UserFavoriteMovieGenresResponse>()
-            .ForMember(dest => dest.CustomerId , opt => opt
-                .MapFrom(src => src.Customer.Id));
-
+            .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Customer.Id));
     }
 }

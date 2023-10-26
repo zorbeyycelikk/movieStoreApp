@@ -9,7 +9,7 @@ namespace Vk.Data.Domain;
 public class UserFavoriteMovieGenres : BaseModel
 {
     public int CustomerId  { get; set; }    // Kullanici Id (Foreign From Customer)
-    public int FavoriteGenreId     { get; set; }    // Tür Id
+    public int FavoriteGenreId { get; set; }    // Tür Id
     
     public virtual Customer Customer { get; set; } 
 }
@@ -26,5 +26,6 @@ class UserFavoriteMovieGenresConfigruration : IEntityTypeConfiguration<UserFavor
         
         builder.Property(x => x.CustomerId).IsRequired();
         builder.Property(x => x.FavoriteGenreId).IsRequired();
+        
     }
 }

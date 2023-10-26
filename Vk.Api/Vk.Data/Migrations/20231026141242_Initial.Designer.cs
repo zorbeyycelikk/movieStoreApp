@@ -12,7 +12,7 @@ using Vk.Data.Context;
 namespace Vk.Data.Migrations
 {
     [DbContext(typeof(VkDbContext))]
-    [Migration("20231024165329_Initial")]
+    [Migration("20231026141242_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -423,7 +423,7 @@ namespace Vk.Data.Migrations
             modelBuilder.Entity("Vk.Data.Domain.UserFavoriteMovieGenres", b =>
                 {
                     b.HasOne("Vk.Data.Domain.Customer", "Customer")
-                        .WithMany("UserFavoriteMovieGenres")
+                        .WithMany("UserFavoriteMovieGenresList")
                         .HasForeignKey("CustomerId")
                         .HasPrincipalKey("CustomerNumber")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -436,7 +436,7 @@ namespace Vk.Data.Migrations
                 {
                     b.Navigation("Orders");
 
-                    b.Navigation("UserFavoriteMovieGenres");
+                    b.Navigation("UserFavoriteMovieGenresList");
                 });
 
             modelBuilder.Entity("Vk.Data.Domain.Director", b =>

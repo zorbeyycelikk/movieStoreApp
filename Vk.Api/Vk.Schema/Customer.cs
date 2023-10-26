@@ -19,5 +19,5 @@ public class CustomerResponse
 {
     public int    CustomerNumber { get; set; }     // Müsteri Unique Number(Sicil gibi)
     public string CustomerFullName { get; set; }   // Mapper'dan gelecek
-    public List<UserFavoriteMovieGenres> UserFavoriteMovieGenres { get; set; } 
+    public List<UserFavoriteMovieGenresResponse> UserFavoriteMovieGenresList { get; set; } 
 }
