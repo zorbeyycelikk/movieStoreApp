@@ -10,4 +10,14 @@
       <Content Include="bin\Debug\net7.0\Vk.Base.dll" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Serilog" Version="3.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+        <HintPath>..\..\..\..\..\..\..\..\usr\local\share\dotnet\shared\Microsoft.AspNetCore.App\7.0.10\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
