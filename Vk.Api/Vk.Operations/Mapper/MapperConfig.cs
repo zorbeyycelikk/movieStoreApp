@@ -8,31 +8,31 @@ public class MapperConfig : Profile
 {
     public MapperConfig()
     {
-        CreateMap<CustomerCreateRequest, Customer>();
+        CreateMap<CustomerCreateRequest, Customer>().ReverseMap(); // test için
         CreateMap<CustomerUpdateRequest, Customer>();
         CreateMap<Customer, CustomerResponse>()
             .ForMember(dest => dest.CustomerFullName, opt => opt
                 .MapFrom(src => src.CustomerFirstName + " " + src.CustomerLastName));
             
-        CreateMap<ActorCreateRequest, Actor>();
+        CreateMap<ActorCreateRequest, Actor>().ReverseMap();
         CreateMap<ActorUpdateRequest, Actor>();
         CreateMap<Actor, ActorResponse>();
         
-        CreateMap<DirectorCreateRequest, Director>();
+        CreateMap<DirectorCreateRequest, Director>().ReverseMap();
         CreateMap<DirectorUpdateRequest, Director>();
         CreateMap<Director, DirectorResponse>();
         
-        CreateMap<GenreCreateRequest, Genre>();
+        CreateMap<GenreCreateRequest, Genre>().ReverseMap();
         CreateMap<GenreUpdateRequest, Genre>();
         CreateMap<Genre, GenreResponse>();
         
-        CreateMap<MovieCreateRequest, Movie>();
+        CreateMap<MovieCreateRequest, Movie>().ReverseMap();
         CreateMap<MovieUpdateRequest, Movie>();
         CreateMap<Movie, MovieResponse>()
             .ForMember(dest => dest.DirectorId, opt => opt.MapFrom(src => src.Director.DirectorNumber))
             .ForMember(dest => dest.GenreId, opt => opt.MapFrom(src => src.Genre.GenreNumber));
         
-        CreateMap<UserFavoriteMovieGenresCreateRequest, UserFavoriteMovieGenres>();
+        CreateMap<UserFavoriteMovieGenresCreateRequest, UserFavoriteMovieGenres>().ReverseMap();
         CreateMap<UserFavoriteMovieGenresUpdateRequest, UserFavoriteMovieGenres>();
         CreateMap<UserFavoriteMovieGenres, UserFavoriteMovieGenresResponse>()
             .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Customer.Id));

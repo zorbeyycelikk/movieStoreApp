@@ -188,3 +188,4 @@ Vk.Data.Domain.Order -> Vk.Schema.OrderResponse
 2023-10-26 19:50:49.947 [INF] LogErrorHandlerMiddleware.Invoke
 2023-10-26 19:50:49.949 [INF] LogRequestLoggingMiddleware.Invoke
 2023-10-26 19:52:43.951 [INF] App server is starting.
+2023-10-26 22:05:50.631 [INF] App server is starting.
