@@ -29,10 +29,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Operations\Validation\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Vk.Base\Vk.Base.csproj" />
       <ProjectReference Include="..\Vk.Data\Vk.Data.csproj" />
       <ProjectReference Include="..\Vk.Operations\Vk.Operations.csproj" />
